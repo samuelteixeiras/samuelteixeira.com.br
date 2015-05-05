@@ -7,8 +7,12 @@ categories: jekyll update
 
 
 Save this script and run , you will see this screen:
-![]({{ site.url }}/assets/print_script.png)
 
+<img src="{{ site.url }}/assets/print_script.png" />
+
+Choose the first option and past the path for your jdk folder:
+
+<img src="{{ site.url }}/assets/print2_script.png" />
 
 {% highlight bash linenos %}
 #!/bin/bash
