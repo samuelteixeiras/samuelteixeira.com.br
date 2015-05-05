@@ -1,0 +1,109 @@
+---
+layout: post
+title:  "Shell script for set java home path on linux"
+date:   2015-05-05 01:15:00
+categories: jekyll update
+---
+
+
+Save this script and run , you will see this screen:
+![]({{ site.url }}/assets/print_script.png)
+
+
+{% highlight bash linenos %}
+#!/bin/bash
+### BEGIN INIT INFO
+# SCRIPT TO SET JAVA_HOME ON LINUX
+### END INIT INFO</code>
+# Author: Samuel Teixeira samuelteixeiras[at]gmail.com
+ 
+ 
+ 
+    next=menu
+ 
+    # loop principal
+    while : ; do
+ 
+        
+        case "$next" in
+              
+        menu)
+            resposta=$(
+              dialog --stdout               \
+              --title 'Menu'  \
+              --menu  'Select one option:' \
+              0 0 0                   \
+              1 'Set Java Path.'\
+              0 'Exit'                )
+ 
+                # CANCELAR or ESC, exir...
+                [ $? -ne 0 ] && break
+ 
+                # De acordo com a opção escolhida, dispara programas
+                case "$resposta" in
+             
+                1)
+                next=setPath
+                back=menu
+                ;;
+             
+                0) break ;;
+                esac
+                ;;
+ 
+         
+ 
+ 
+ 
+            setPath)
+            next=$back
+            dir=$(dialog           --stdout            \
+               --title 'Set java Path'                         \
+               --inputbox 'Please, Insert the name of java path \n Ex: /usr/local/jdk1.8.0:'  \
+            0 0)
+         
+            bashFile=~/.bashrc
+         
+            if [ -d "$dir" ]
+            then
+                echo "export JAVA_HOME=$dir" >> $bashFile
+                echo "export PATH=$PATH:$dir/bin" >> $bashFile
+ 
+            else
+                echo "$dir not found."
+            fi
+ 
+            source $bashFile
+             
+            sudo update-alternatives --install "/usr/bin/java" "java" "$dir/bin/java" 1
+            sudo update-alternatives --install "/usr/bin/javac" "javac" "$dir/bin/javac" 1
+            sudo update-alternatives --install "/usr/bin/javaws" "javaws" "$dir/bin/javaws" 1
+            sudo chmod a+x /usr/bin/java
+            sudo chmod a+x /usr/bin/javac
+            sudo chmod a+x /usr/bin/javaws
+            sudo chown -R root:root $dir
+ 
+            break
+ 
+            ;;
+         
+ 
+         
+        *)
+            echo "Bad Window '$next'."
+            echo Abort programm...
+            exit
+        esac
+ 
+        # Aqui é feito o tratamento genérico de Código de Retorno
+        # de todas as telas. Volta para a tela back se for
+        # CANCELAR, sai do programa se for ESC.
+        retorno=$?
+        [ $retorno -eq 1   ] && next=$back      # cancel
+        [ $retorno -eq 255 ] && break               # Esc
+ 
+    done
+    clear
+    sudo update-alternatives --config java
+    java -version
+{% endhighlight %}
