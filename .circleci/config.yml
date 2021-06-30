@@ -30,7 +30,7 @@ jobs:
           name: install builder
           command : |
             gem install bundler
-      - run: bundle install --local path 'vendor/bundle'
+      - run: bundle install --local vendor/bundle
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
@@ -56,7 +56,7 @@ jobs:
       - run: 
           name: Link Bundle Path
           command : |
-            bundle config set --local path 'vendor/bundle'
+            bundle config set --local vendor/bundle
       - run:
           name: Precompile Assets
           command: bundle exec jekyll build
