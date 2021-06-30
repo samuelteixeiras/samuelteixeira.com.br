@@ -3,9 +3,9 @@ title: Samuel Teixeira's
 email: samuelteixeiras@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A software engineer that love technology and have been working with web technologies since 2008.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "samuelteixeira.com.br" # the subpath of your site, e.g. /blog/
 #url: "https://samuelteixeira.com.br" # 
-url: https://samuelteixeiras.github.io/samuelteixeira.com.br/
+url: https://samuelteixeiras.github.io
 twitter_username: samuelteixeiras
 github_username:  samuelteixeiras
 
