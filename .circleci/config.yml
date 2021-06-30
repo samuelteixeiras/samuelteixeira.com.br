@@ -30,7 +30,7 @@ jobs:
           name: install builder
           command : |
             gem install bundler
-      - run: bundle install --path vendor/bundle
+      - run: bundle install --local path 'vendor/bundle'
       - save_cache:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
