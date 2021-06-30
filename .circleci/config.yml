@@ -56,7 +56,7 @@ jobs:
       - run: 
           name: Link Bundle Path
           command : |
-            bundle --path vendor/bundle
+            bundle config set --local path 'vendor/bundle'
       - run:
           name: Precompile Assets
           command: bundle exec jekyll build
