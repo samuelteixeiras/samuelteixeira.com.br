@@ -4,7 +4,7 @@ email: samuelteixeiras@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A software engineer that love technology and have been working with web technologies since 2008.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://samuelteixeira.com.br" # 
+url: "https://samuelteixeira.com.br" # 
 twitter_username: samuelteixeiras
 github_username:  samuelteixeiras
 
