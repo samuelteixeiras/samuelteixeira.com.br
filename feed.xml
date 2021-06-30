@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Samuel Teixeira's</title>
+    <description>A software engineer that love technology and have been working with web technologies since 2008.
+</description>
+    <link>https://samuelteixeiras.github.io/samuelteixeira.com.br/</link>
+    <atom:link href="https://samuelteixeiras.github.io/samuelteixeira.com.br/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 30 Jun 2021 20:23:37 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Jun 2021 20:23:37 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>Renew https certificate</title>
+        <description>&lt;p&gt;enew the http certificate with cerbot for nginx
+Last year I decided enable https in my server. I am using a digital ocean node and I followed the tutorial: https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04, but I didn’t enable the auto renew of the certificate. Why ??&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i1.kym-cdn.com/entries/icons/original/000/004/006/y-u-no-guy.jpg&quot; alt=&quot;why&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After one year the certificate was experied and this is what you see when you access the page:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://samuelteixeiras.github.io/assets/samuel_page_erro.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My problem was I can run the command in the tutorial [1] to renew because I change the nginx root path to the jekyll root in /var/www/samuelteixeira.com.br/_site.&lt;/p&gt;
+
+&lt;p&gt;So to renew the https certificate I have to change the webroot.The command to do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;certbot certonly &lt;span class=&quot;nt&quot;&gt;--force-renewal&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; webroot &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; www.samuelteixeira.com.br &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 
+/var/www/samuelteixeira.com.br/_site &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; samuelteixeira.com.br
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;** Happy day!&lt;/p&gt;
+
+&lt;p&gt;[1] sudo certbot certonly –webroot –webroot-path=/var/www/html -d example.com -d www.example.com&lt;/p&gt;
+
+&lt;p&gt;Post created with only markdown editor:  http://dillinger.io/&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 May 2017 13:00:00 +0000</pubDate>
+        <link>https://samuelteixeiras.github.io/samuelteixeira.com.br/certbot/https/linux/2017/05/02/configuring-https-certificate.html</link>
+        <guid isPermaLink="true">https://samuelteixeiras.github.io/samuelteixeira.com.br/certbot/https/linux/2017/05/02/configuring-https-certificate.html</guid>
+        
+        
+        <category>certbot</category>
+        
+        <category>https</category>
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Starting with alexa using javascript and Nodejs as server!</title>
+        <description>&lt;p&gt;I am really excited about voice technology and some time ago I created an app to try come tricks using the google text to speech and speech to text (link). But now I am learning how amazon echo works. Here I will explain what I am doing , and how I set up my own skill, step by step.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 09 Nov 2016 10:00:00 +0000</pubDate>
+        <link>https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2016/11/09/alexa-how-start-with-amazon-echo-using-javascript.html</link>
+        <guid isPermaLink="true">https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2016/11/09/alexa-how-start-with-amazon-echo-using-javascript.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Shell script for set java home path on linux</title>
+        <description>&lt;p&gt;Save this script and run , you will see this screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://samuelteixeiras.github.io/assets/print_script.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Choose the first option and past the path for your jdk folder:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://samuelteixeiras.github.io/assets/print2_script.png&quot; /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;### BEGIN INIT INFO&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# SCRIPT TO SET JAVA_HOME ON LINUX&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;### END INIT INFO&amp;lt;/code&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Author: Samuel Teixeira samuelteixeiras[at]gmail.com&lt;/span&gt;
+ 
+ 
+ 
+    &lt;span class=&quot;nv&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;menu
+ 
+    &lt;span class=&quot;c&quot;&gt;# loop principal&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; : &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do
+ 
+        
+        case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$next&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+              
+        &lt;/span&gt;menu&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;resposta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;
+              dialog &lt;span class=&quot;nt&quot;&gt;--stdout&lt;/span&gt;               &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;--title&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Menu'&lt;/span&gt;  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+              &lt;span class=&quot;nt&quot;&gt;--menu&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;'Select one option:'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+              0 0 0                   &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+              1 &lt;span class=&quot;s1&quot;&gt;'Set Java Path.'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+              0 &lt;span class=&quot;s1&quot;&gt;'Exit'&lt;/span&gt;                &lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+ 
+                &lt;span class=&quot;c&quot;&gt;# CANCELAR or ESC, exir...&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-ne&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+ 
+                &lt;span class=&quot;c&quot;&gt;# De acordo com a opção escolhida, dispara programas&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$resposta&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+             
+                &lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;nv&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;setPath
+                &lt;span class=&quot;nv&quot;&gt;back&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;menu
+                &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+             
+                0&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+ 
+         
+ 
+ 
+ 
+            setPath&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$back&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;dialog           &lt;span class=&quot;nt&quot;&gt;--stdout&lt;/span&gt;            &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nt&quot;&gt;--title&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Set java Path'&lt;/span&gt;                         &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nt&quot;&gt;--inputbox&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Please, Insert the name of java path \n Ex: /usr/local/jdk1.8.0:'&lt;/span&gt;  &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+            0 0&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+         
+            &lt;span class=&quot;nv&quot;&gt;bashFile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/.bashrc
+         
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;then
+                &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export JAVA_HOME=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$bashFile&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export PATH=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/bin&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$bashFile&lt;/span&gt;
+ 
+            &lt;span class=&quot;k&quot;&gt;else
+                &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; not found.&quot;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;fi
+ 
+            &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$bashFile&lt;/span&gt;
+             
+            &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/bin/java&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;java&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/bin/java&quot;&lt;/span&gt; 1
+            &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/bin/javac&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;javac&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/bin/javac&quot;&lt;/span&gt; 1
+            &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/bin/javaws&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;javaws&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/bin/javaws&quot;&lt;/span&gt; 1
+            &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;a+x /usr/bin/java
+            &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;a+x /usr/bin/javac
+            &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;a+x /usr/bin/javaws
+            &lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; root:root &lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt;
+ 
+            &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;
+ 
+            &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+         
+ 
+         
+        &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Bad Window '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$next&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'.&quot;&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Abort programm...
+            &lt;span class=&quot;nb&quot;&gt;exit
+        &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+ 
+        &lt;span class=&quot;c&quot;&gt;# Aqui é feito o tratamento genérico de Código de Retorno&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# de todas as telas. Volta para a tela back se for&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# CANCELAR, sai do programa se for ESC.&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;retorno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retorno&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 1   &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$back&lt;/span&gt;      &lt;span class=&quot;c&quot;&gt;# cancel&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$retorno&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 255 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;               &lt;span class=&quot;c&quot;&gt;# Esc&lt;/span&gt;
+ 
+    &lt;span class=&quot;k&quot;&gt;done
+    &lt;/span&gt;clear
+    &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; java
+    java &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Tue, 05 May 2015 01:15:00 +0000</pubDate>
+        <link>https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2015/05/05/shell-script-set-java-home-path.html</link>
+        <guid isPermaLink="true">https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2015/05/05/shell-script-set-java-home-path.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Migrating my wordpress site to Jekyll!</title>
+        <description>&lt;p&gt;Hi, this is my first post on this new site format.I am using now Jekyll to make static pages.&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 03 Dec 2014 18:49:39 +0000</pubDate>
+        <link>https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2014/12/03/migrando-para-jekyll.html</link>
+        <guid isPermaLink="true">https://samuelteixeiras.github.io/samuelteixeira.com.br/jekyll/update/2014/12/03/migrando-para-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
